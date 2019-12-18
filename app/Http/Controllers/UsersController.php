@@ -24,7 +24,7 @@ class UsersController
         ), 201);
     }
 
-    public function getForId(int $id){
+    public function show(int $id){
 
         $user = User::find($id);
         if (is_null($user)){
@@ -32,5 +32,17 @@ class UsersController
         }
 
         return response()->json($user);
+    }
+
+    public function update(int $id, Request $request){
+
+        $user = User::find($id);
+        if (is_null($user)){
+            return response()->json([
+                'erro' => 'Recurso não encontrado'
+            ], 404);
+        }
+        $user->fill($request->all());
+        $user->save();
     }
 }
