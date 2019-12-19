@@ -45,4 +45,15 @@ class UsersController
         $user->fill($request->all());
         $user->save();
     }
+
+    public function destroy(int $id){
+
+        $recursoRemovido = User::destroy($id);
+        if ($recursoRemovido === 0){
+            return response()->json([
+                'erro' => 'Recurso não encontrado.'
+            ], 404);
+        }
+        return response()->json('', 204);
+    }
 }
