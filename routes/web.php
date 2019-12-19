@@ -46,4 +46,11 @@ $router->group(['prefix' => '/api'], function () use ($router){
         $router->put('{id}', 'StoriesController@update');
         $router->delete('{id}', 'StoriesController@destroy');
     });
+    $router->group(['prefix' => 'searchtypes'], function () use ($router){
+        $router->get('', 'SearchTypesController@index');
+        $router->post('', 'SearchTypesController@store');
+        $router->get('{id}', 'SearchTypesController@show');
+        $router->put('{id}', 'SearchTypesController@update');
+        $router->delete('{id}', 'SearchTypesController@destroy');
+    });
 });
