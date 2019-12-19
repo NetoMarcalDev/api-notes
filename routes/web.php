@@ -32,4 +32,11 @@ $router->group(['prefix' => '/api'], function () use ($router){
         $router->put('{id}', 'StatesController@update');
         $router->delete('{id}', 'StatesController@destroy');
     });
+    $router->group(['prefix' => 'notes'], function () use ($router){
+        $router->get('', 'NotesController@index');
+        $router->post('', 'NotesController@store');
+        $router->get('{id}', 'NotesController@show');
+        $router->put('{id}', 'NotesController@update');
+        $router->delete('{id}', 'NotesController@destroy');
+    });
 });
