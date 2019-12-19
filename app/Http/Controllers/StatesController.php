@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
-class StatesController
-{
+use App\State;
 
+class StatesController extends BaseController
+{
+    public function __construct()
+    {
+        $this->classe = State::class;
+    }
 }
