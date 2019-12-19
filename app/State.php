@@ -12,4 +12,9 @@ class State extends Model
 
         return $this->hasMany(Note::class);
     }
+
+    public function getActiveAttribute($active) : bool
+    {
+        return $active;
+    }
 }
