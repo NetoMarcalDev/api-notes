@@ -40,4 +40,9 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
         return $this->hasMany(Storie::class);
     }
+
+    public function getActiveAttribute($active) : bool
+    {
+        return $active;
+    }
 }
