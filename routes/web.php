@@ -25,4 +25,11 @@ $router->group(['prefix' => '/api'], function () use ($router){
         $router->put('{id}', 'UsersController@update');
         $router->delete('{id}', 'UsersController@destroy');
     });
+    $router->group(['prefix' => 'states'], function () use ($router){
+        $router->get('', 'StatesController@index');
+        $router->post('', 'StatesController@store');
+        $router->get('{id}', 'StatesController@show');
+        $router->put('{id}', 'StatesController@update');
+        $router->delete('{id}', 'StatesController@destroy');
+    });
 });
