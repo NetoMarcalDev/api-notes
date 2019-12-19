@@ -18,9 +18,11 @@ $router->get('/', function () use ($router) {
 });
 
 $router->group(['prefix' => '/api'], function () use ($router){
-    $router->get('users', 'UsersController@index');
-    $router->post('users', 'UsersController@store');
-    $router->get('users/{id}', 'UsersController@show');
-    $router->put('users/{id}', 'UsersController@update');
-    $router->delete('users/{id}', 'UsersController@destroy');
+    $router->group(['prefix' => 'users'], function () use ($router){
+        $router->get('', 'UsersController@index');
+        $router->post('', 'UsersController@store');
+        $router->get('{id}', 'UsersController@show');
+        $router->put('{id}', 'UsersController@update');
+        $router->delete('{id}', 'UsersController@destroy');
+    });
 });
