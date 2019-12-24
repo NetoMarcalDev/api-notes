@@ -15,10 +15,8 @@ abstract class BaseController
     public function store(Request $request)
     {
         return response()->json(
-            $this->classe::create([
-                    'description' => $request->description,
-                    'password' => md5($request->password)
-                ]
+            $this->classe::create(
+                $request->all()
         ), 201);
     }
 
