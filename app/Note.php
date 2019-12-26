@@ -7,6 +7,7 @@ class Note extends Model
 {
     public $timestamps = false;
     protected $fillable = ['id', 'id_state', 'id_user', 'id_user_connect', 'title', 'creation_date'];
+    protected $appends = ['links'];
 
     public function stories(){
 
@@ -21,5 +22,13 @@ class Note extends Model
     public function state(){
 
         return $this->belongsTo(State::class);
+    }
+
+    public function getLinksAttribute($links) : array
+    {
+        return [
+            'self' => '/api/notes/' . $this->id,
+            'stories' => '/api/notes/' . $this->id . '/stories'
+        ];
     }
 }
