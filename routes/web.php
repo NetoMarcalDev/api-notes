@@ -34,6 +34,7 @@ $router->group(['prefix' => '/api'], function () use ($router){
     });
     $router->group(['prefix' => 'notes'], function () use ($router){
         $router->get('', 'NotesController@index');
+        $router->get('', 'NotesController@perPage');
         $router->post('', 'NotesController@store');
         $router->get('{id}', 'NotesController@show');
         $router->put('{id}', 'NotesController@update');
