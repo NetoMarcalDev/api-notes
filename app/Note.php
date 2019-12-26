@@ -24,7 +24,7 @@ class Note extends Model
         return $this->belongsTo(State::class);
     }
 
-    public function getLinksAttribute($links) : array
+    public function getLinksAttribute() : array
     {
         return [
             'self' => '/api/notes/' . $this->id,

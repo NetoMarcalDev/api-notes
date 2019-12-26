@@ -19,7 +19,7 @@ class Storie extends Model
         return $this->belongsTo(Note::class);
     }
 
-    public function getLinksAttribute($links) : array
+    public function getLinksAttribute() : array
     {
         return [
             'self' => '/api/stories/' . $this->id,
