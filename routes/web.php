@@ -20,7 +20,7 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => '/api', 'middleware' => 'auth'], function () use ($router){
     $router->group(['prefix' => 'users'], function () use ($router){
         $router->get('', 'UsersController@index');
-        $router->post('', 'UsersController@store');
+        $router->post('', 'UsersController@create');
         $router->get('{id}', 'UsersController@show');
         $router->put('{id}', 'UsersController@update');
         $router->delete('{id}', 'UsersController@destroy');
@@ -57,3 +57,5 @@ $router->group(['prefix' => '/api', 'middleware' => 'auth'], function () use ($r
         $router->delete('{id}', 'SearchTypesController@destroy');
     });
 });
+
+$router->post('/api/login', 'TokenController@generateToken');
