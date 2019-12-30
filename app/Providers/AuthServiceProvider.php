@@ -42,7 +42,7 @@ class AuthServiceProvider extends ServiceProvider
             $dataAutentication = JWT::decode($token, env('JWT_KEY'), ['HS256']);
 
             return new GenericUser(['password' => $dataAutentication]);
-            //return User::where('password', $dataAutontication['password'])->first();
+            //return User::where('password', $dataAutentication['password'])->first();
         });
     }
 }
